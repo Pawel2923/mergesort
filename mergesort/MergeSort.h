@@ -8,7 +8,7 @@ private:
     int* tempArray;
 
 public:
-    MergeSort() : tempArray(nullptr) {}
+    MergeSort(int size) : tempArray(new int(size)) {}
     ~MergeSort() { delete[] tempArray; }
     void merge(int* arr, unsigned left, unsigned center, unsigned right);
     void mergeSort(int* arr, unsigned left, unsigned right);
