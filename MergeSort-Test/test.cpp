@@ -60,6 +60,25 @@ static TEST(MegeSortTest, IsReverseSorted)
     delete[] array;
 }
 
+static TEST(MegeSortTest, RandomNumbers)
+{
+    srand(time(NULL));
+
+    int size = rand() % 10000 + 5;
+    int* array;
+    array = new int[size];
+
+    for (int i = 0; i < size; i++) {
+        array[i] = rand() % 10000 + 1;
+    }
+
+    mergeSort(array, size);
+
+    ASSERT_TRUE(std::is_sorted(array, array + size));
+
+    delete[] array;
+}
+
 int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
