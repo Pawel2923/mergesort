@@ -1,10 +1,11 @@
+#include "pch.h"
 #include "MergeSort.h"
 
-void MergeSort::merge(int* arr, unsigned left, unsigned center, unsigned right) 
+void MergeSort::merge(int* arr, unsigned left, unsigned center, unsigned right)
 {
 	int i, j;
 
-	for (i = center + 1; i > left; i--) 
+	for (i = center + 1; i > left; i--)
 	{
 		tempArray[i - 1] = arr[i - 1];
 	}
@@ -14,7 +15,7 @@ void MergeSort::merge(int* arr, unsigned left, unsigned center, unsigned right)
 		tempArray[right + center - j] = arr[j + 1];
 	}
 
-	for (int k = left; k <= right; k++) 
+	for (int k = left; k <= right; k++)
 	{
 		if (tempArray[j] < tempArray[i])
 		{
@@ -27,7 +28,7 @@ void MergeSort::merge(int* arr, unsigned left, unsigned center, unsigned right)
 	}
 }
 
-void MergeSort::mergeSort(int* arr, unsigned left, unsigned right) 
+void MergeSort::mergeSort(int* arr, unsigned left, unsigned right)
 {
 	if (left >= right) {
 		return;
