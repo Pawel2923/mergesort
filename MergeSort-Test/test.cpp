@@ -205,6 +205,26 @@ static TEST(MergeSortTest, TwoElements)
     ASSERT_TRUE(std::is_sorted(array, array + 2));
 }
 
+static TEST(MergeSortTest, LargeArray)
+{
+    srand(time(NULL));
+
+    int size = 500000;
+    int* array;
+    array = new int[size];
+
+    for (size_t i = 0; i < size; i++)
+    {
+        array[i] = rand() % 10000 + 1;
+    }
+
+    mergeSort(array, size);
+
+    ASSERT_TRUE(std::is_sorted(array, array + size));
+
+    delete[] array;
+}
+
 int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
