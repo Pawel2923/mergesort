@@ -61,8 +61,9 @@ static TEST(MegeSortTest, IsReverseSorted)
     }
 
     mergeSort(array, size, true);
+    mergeSort(array, size);
 
-    ASSERT_TRUE(std::is_sorted(array, array + size, std::greater<int>()));
+    ASSERT_TRUE(std::is_sorted(array, array + size));
 
     delete[] array;
 }
