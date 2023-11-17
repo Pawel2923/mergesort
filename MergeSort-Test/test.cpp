@@ -138,6 +138,37 @@ static TEST(MergeSortTest, EmptyArray)
     delete[] array;
 }
 
+static TEST(MergeSortTest, OneElementArrayChanged)
+{
+    srand(time(NULL));
+
+    int size = 1;
+    int* array;
+    array = new int[size];
+    int* arrayCopy;
+    arrayCopy = new int[size];
+
+    for (size_t i = 0; i < size; i++)
+    {
+        array[i] = rand() % 10000 + 1;
+    }
+
+    for (size_t i = 0; i < size; i++)
+    {
+        arrayCopy[i] = array[i];
+    }
+
+    mergeSort(array, size);
+
+    for (size_t i = 0; i < size; i++)
+    {
+        ASSERT_EQ(array[i], arrayCopy[i]);
+    }
+
+    delete[] array;
+    delete[] arrayCopy;
+}
+
 int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
