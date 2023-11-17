@@ -44,7 +44,12 @@ void MergeSort::merge(int* arr, unsigned left, unsigned center, unsigned right)
 
 void MergeSort::mergeSort(int* arr, unsigned left, unsigned right)
 {
-	if (left >= right) 
+	if (tempArray == nullptr)
+	{
+		return;
+	}
+
+	if (left >= right)
 	{
 		return;
 	}
