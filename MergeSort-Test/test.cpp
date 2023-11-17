@@ -16,7 +16,8 @@ static void mergeSort(int* array, int size, bool reverse = false)
 	}
 }
 
-static TEST(MergeSortTest, ArrayChanged) {
+static TEST(MergeSortTest, ArrayChanged) 
+{
     srand(time(NULL));
 
     int size = rand() % 10000 + 5;
@@ -25,17 +26,22 @@ static TEST(MergeSortTest, ArrayChanged) {
     int* arrayCopy;
     arrayCopy = new int[size];
 
-    for (int i = 0; i < size; i++) {
+    for (size_t i = 0; i < size; i++) 
+    {
         array[i] = rand() % 10000 + 1;
     }
 
-    for (int i = 0; i < size; i++) {
+    for (size_t i = 0; i < size; i++) 
+    {
         arrayCopy[i] = array[i];
     }
 
     mergeSort(array, size);
 
-    ASSERT_EQ(array, arrayCopy);
+    for (size_t i = 0; i < size; i++) 
+    { 
+        ASSERT_EQ(array[i], arrayCopy[i]);
+    }
 
     delete[] array;
     delete[] arrayCopy;
@@ -49,7 +55,8 @@ static TEST(MegeSortTest, IsReverseSorted)
     int* array;
     array = new int[size];
 
-    for (int i = 0; i < size; i++) {
+    for (size_t i = 0; i < size; i++) 
+    {
         array[i] = rand() % 10000 + 1;
     }
 
@@ -68,7 +75,8 @@ static TEST(MegeSortTest, RandomNumbers)
     int* array;
     array = new int[size];
 
-    for (int i = 0; i < size; i++) {
+    for (size_t i = 0; i < size; i++) 
+    {
         array[i] = rand() % 10000 + 1;
     }
 
@@ -87,7 +95,8 @@ static TEST(MegeSortTest, NegativeNumbers)
     int* array;
     array = new int[size];
 
-    for (int i = 0; i < size; i++) {
+    for (size_t i = 0; i < size; i++) 
+    {
         array[i] = (rand() % 10000 + 1) * (-1);
     }
 
@@ -106,7 +115,8 @@ static TEST(MergeSortTest, NegAndPosNumbers)
     int* array;
     array = new int[size];
 
-    for (int i = 0; i < size; i++) {
+    for (size_t i = 0; i < size; i++) 
+    {
         array[i] = (rand() % 10000 + 1) * (-1) + (rand() % 10000 + 1);
     }
 
