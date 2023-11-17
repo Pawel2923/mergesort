@@ -169,6 +169,33 @@ static TEST(MergeSortTest, OneElementArrayChanged)
     delete[] arrayCopy;
 }
 
+static TEST(MergeSortTest, DuplicateNumbers)
+{
+    int array[] = { 6, 44, 44, 22, 22, 11, 55, 1, 11, 2, 6, 7};
+
+    mergeSort(array, 12);
+
+    ASSERT_TRUE(std::is_sorted(array, array + 12));
+}
+
+static TEST(MergeSortTest, DuplicateNegNumbers)
+{
+    int array[] = { -6, -44, -44, -22, -22, -11, -55, -1, -11, -2, -6, -7 };
+
+    mergeSort(array, 12);
+
+    ASSERT_TRUE(std::is_sorted(array, array + 12));
+}
+
+static TEST(MergeSortTest, DuplicateNegAndPosNumbers)
+{
+    int array[] = { 6, -44, 44, 22, 22, -11, 55, -1, -11, -2, 6, -7 };
+
+    mergeSort(array, 12);
+
+    ASSERT_TRUE(std::is_sorted(array, array + 12));
+}
+
 int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
