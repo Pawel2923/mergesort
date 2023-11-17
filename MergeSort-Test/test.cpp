@@ -196,6 +196,15 @@ static TEST(MergeSortTest, DuplicateNegAndPosNumbers)
     ASSERT_TRUE(std::is_sorted(array, array + 12));
 }
 
+static TEST(MergeSortTest, TwoElements)
+{
+    int array[] = { 5555555, 22446 };
+
+    mergeSort(array, 2);
+
+    ASSERT_TRUE(std::is_sorted(array, array + 2));
+}
+
 int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
