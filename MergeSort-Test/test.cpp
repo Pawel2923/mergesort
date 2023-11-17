@@ -127,6 +127,17 @@ static TEST(MergeSortTest, NegAndPosNumbers)
     delete[] array;
 }
 
+static TEST(MergeSortTest, EmptyArray)
+{
+    int size = 0;
+    int* array;
+    array = new int[size];
+
+    ASSERT_NO_THROW(mergeSort(array, size));
+
+    delete[] array;
+}
+
 int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
