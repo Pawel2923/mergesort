@@ -8,16 +8,36 @@ int main()
 {
     srand(time(NULL));
     
-    int size = rand() % 10000 + 5;
+    int size = rand() % 100 + 5;
     int* array;
     array = new int[size];
 
     for (size_t i = 0; i < size; i++) {
-        array[i] = rand() % 10000 + 1;
+        array[i] = rand() % 100 + 1;
     }
+
+    cout << "Oryginalna tablica: " << endl;
+
+    for (size_t i = 0; i < size; i++) {
+		cout << array[i] << " ";
+	}
 
     MergeSort sort(size);
     sort.mergeSort(array, 0, size - 1);
+
+    cout << "\nPosortowana rosnaco: " << endl;
+
+    for (size_t i = 0; i < size; i++) {
+        cout << array[i] << " ";
+    }
+
+    sort.mergeSortReverse(array, 0, size - 1);
+
+    cout << "\nPosortowana malejaco: " << endl;
+
+    for (size_t i = 0; i < size; i++) {
+		cout << array[i] << " ";
+	}
 
     delete[] array;
 }
