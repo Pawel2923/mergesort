@@ -14,7 +14,7 @@ void MergeSort::merge(int* arr, unsigned left, unsigned center, unsigned right)
 		tempArray[right + center - j] = arr[j + 1];
 	}
 
-	for (int k = left; k <= right; k++) 
+	for (size_t k = left; k <= right; k++) 
 	{
 		if (tempArray[j] < tempArray[i])
 		{
