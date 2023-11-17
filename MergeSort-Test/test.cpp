@@ -18,33 +18,20 @@ static void mergeSort(int* array, int size, bool reverse = false)
 
 static TEST(MergeSortTest, ArrayChanged) 
 {
-    srand(time(NULL));
+    int array[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    int arrayCopy[10] = { 0 };
 
-    int size = rand() % 10000 + 5;
-    int* array;
-    array = new int[size];
-    int* arrayCopy;
-    arrayCopy = new int[size];
-
-    for (size_t i = 0; i < size; i++) 
-    {
-        array[i] = rand() % 10000 + 1;
-    }
-
-    for (size_t i = 0; i < size; i++) 
+    for (size_t i = 0; i < 10; i++) 
     {
         arrayCopy[i] = array[i];
     }
 
-    mergeSort(array, size);
+    mergeSort(array, 10);
 
-    for (size_t i = 0; i < size; i++) 
+    for (size_t i = 0; i < 10; i++) 
     { 
         ASSERT_EQ(array[i], arrayCopy[i]);
     }
-
-    delete[] array;
-    delete[] arrayCopy;
 }
 
 static TEST(MegeSortTest, IsReverseSorted)
@@ -141,33 +128,16 @@ static TEST(MergeSortTest, EmptyArray)
 
 static TEST(MergeSortTest, OneElementArrayChanged)
 {
-    srand(time(NULL));
+    int array[] = { 1 };
+    int arrayCopy[1] = { 0 };
+    arrayCopy[0] = array[0];
 
-    int size = 1;
-    int* array;
-    array = new int[size];
-    int* arrayCopy;
-    arrayCopy = new int[size];
+    mergeSort(array, 1);
 
-    for (size_t i = 0; i < size; i++)
-    {
-        array[i] = rand() % 10000 + 1;
-    }
-
-    for (size_t i = 0; i < size; i++)
-    {
-        arrayCopy[i] = array[i];
-    }
-
-    mergeSort(array, size);
-
-    for (size_t i = 0; i < size; i++)
+    for (size_t i = 0; i < 1; i++)
     {
         ASSERT_EQ(array[i], arrayCopy[i]);
     }
-
-    delete[] array;
-    delete[] arrayCopy;
 }
 
 static TEST(MergeSortTest, DuplicateNumbers)
