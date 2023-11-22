@@ -27,7 +27,7 @@ static TEST(MergeSortTest, ArrayChanged)
     }
 }
 
-static TEST(MegeSortTest, IsReverseSorted)
+static TEST(MergeSortTest, IsReverseSorted)
 {
     int array[10] = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
     int arrayCopy[10] = { 0 };
@@ -42,7 +42,7 @@ static TEST(MegeSortTest, IsReverseSorted)
     ASSERT_TRUE(std::is_sorted(array, array + 10));
 }
 
-static TEST(MegeSortTest, RandomNumbers)
+static TEST(MergeSortTest, RandomNumbers)
 {
     srand(time(NULL));
 
@@ -62,7 +62,7 @@ static TEST(MegeSortTest, RandomNumbers)
     delete[] array;
 }
 
-static TEST(MegeSortTest, NegativeNumbers)
+static TEST(MergeSortTest, NegativeNumbers)
 {
     srand(time(NULL));
 
