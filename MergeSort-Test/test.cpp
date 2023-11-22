@@ -40,8 +40,6 @@ static TEST(MegeSortTest, IsReverseSorted)
     mergeSort(array, 10);
 
     ASSERT_TRUE(std::is_sorted(array, array + 10));
-
-    delete[] array;
 }
 
 static TEST(MegeSortTest, RandomNumbers)
