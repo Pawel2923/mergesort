@@ -27,21 +27,12 @@ int main()
     MergeSort sort(size);
     sort.mergeSort(array, 0, size - 1);
 
-    cout << "\nPosortowana rosnaco: " << endl;
+    cout << "\nPosortowana tablica: " << endl;
 
     for (size_t i = 0; i < size; i++) 
     {
         cout << array[i] << " ";
     }
-
-    sort.mergeSortReverse(array, 0, size - 1);
-
-    cout << "\nPosortowana malejaco: " << endl;
-
-    for (size_t i = 0; i < size; i++) 
-    {
-		cout << array[i] << " ";
-	}
 
     delete[] array;
 }
