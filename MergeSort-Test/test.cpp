@@ -3,54 +3,43 @@
 #include "pch.h"
 #include "MergeSort.h"
 
-static void mergeSort(int* array, int size, bool reverse = false)
+static void mergeSort(int* array, int size)
 {
     MergeSort sort(size);
-    if (reverse)
-    {
-		sort.mergeSortReverse(array, 0, size - 1);
-	}
-    else
-    {
-		sort.mergeSort(array, 0, size - 1);
-	}
+    sort.mergeSort(array, 0, size - 1);
 }
 
-static TEST(MergeSortTest, ArrayChanged) 
+static TEST(MergeSortTest, ArrayChanged)
 {
     int array[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
     int arrayCopy[10] = { 0 };
 
-    for (size_t i = 0; i < 10; i++) 
+    for (size_t i = 0; i < 10; i++)
     {
         arrayCopy[i] = array[i];
     }
 
     mergeSort(array, 10);
 
-    for (size_t i = 0; i < 10; i++) 
-    { 
+    for (size_t i = 0; i < 10; i++)
+    {
         ASSERT_EQ(array[i], arrayCopy[i]);
     }
 }
 
 static TEST(MegeSortTest, IsReverseSorted)
 {
-    srand(time(NULL));
+    int array[10] = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 };
+    int arrayCopy[10] = { 0 };
 
-    int size = rand() % 10000 + 5;
-    int* array;
-    array = new int[size];
-
-    for (size_t i = 0; i < size; i++) 
+    for (size_t i = 0; i < 10; i++)
     {
-        array[i] = rand() % 10000 + 1;
+        arrayCopy[i] = array[i];
     }
 
-    mergeSort(array, size, true);
-    mergeSort(array, size);
+    mergeSort(array, 10);
 
-    ASSERT_TRUE(std::is_sorted(array, array + size));
+    ASSERT_TRUE(std::is_sorted(array, array + 10));
 
     delete[] array;
 }
@@ -63,7 +52,7 @@ static TEST(MegeSortTest, RandomNumbers)
     int* array;
     array = new int[size];
 
-    for (size_t i = 0; i < size; i++) 
+    for (size_t i = 0; i < size; i++)
     {
         array[i] = rand() % 10000 + 1;
     }
@@ -83,7 +72,7 @@ static TEST(MegeSortTest, NegativeNumbers)
     int* array;
     array = new int[size];
 
-    for (size_t i = 0; i < size; i++) 
+    for (size_t i = 0; i < size; i++)
     {
         array[i] = (rand() % 10000 + 1) * (-1);
     }
@@ -103,7 +92,7 @@ static TEST(MergeSortTest, NegAndPosNumbers)
     int* array;
     array = new int[size];
 
-    for (size_t i = 0; i < size; i++) 
+    for (size_t i = 0; i < size; i++)
     {
         array[i] = (rand() % 10000 + 1) * (-1) + (rand() % 10000 + 1);
     }
@@ -142,7 +131,7 @@ static TEST(MergeSortTest, OneElementArrayChanged)
 
 static TEST(MergeSortTest, DuplicateNumbers)
 {
-    int array[] = { 6, 44, 44, 22, 22, 11, 55, 1, 11, 2, 6, 7};
+    int array[] = { 6, 44, 44, 22, 22, 11, 55, 1, 11, 2, 6, 7 };
 
     mergeSort(array, 12);
 

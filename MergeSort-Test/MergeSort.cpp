@@ -1,20 +1,6 @@
 #include "pch.h"
 #include "MergeSort.h"
 
-void MergeSort::reverseArray(int* arr, unsigned left, unsigned right)
-{
-	int temp;
-
-	while (left < right)
-	{
-		temp = arr[left];
-		arr[left] = arr[right];
-		arr[right] = temp;
-		left++;
-		right--;
-	}
-}
-
 void MergeSort::merge(int* arr, unsigned left, unsigned center, unsigned right)
 {
 	int i, j;
@@ -60,10 +46,4 @@ void MergeSort::mergeSort(int* arr, unsigned left, unsigned right)
 	mergeSort(arr, center + 1, right);
 
 	merge(arr, left, center, right);
-}
-
-void MergeSort::mergeSortReverse(int* arr, unsigned left, unsigned right)
-{
-	mergeSort(arr, left, right);
-	reverseArray(arr, left, right);
 }
