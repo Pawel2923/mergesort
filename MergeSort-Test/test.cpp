@@ -183,6 +183,26 @@ static TEST(MergeSortTest, LargeArray)
     delete[] array;
 }
 
+static TEST(MergeSortTest, LargeArrayDuplicates)
+{
+    srand(time(NULL));
+
+    int size = 500000;
+    int* array;
+    array = new int[size];
+
+    for (size_t i = 0; i < size; i++)
+    {
+        array[i] = (rand() % 1000 + 1) * (-1) + (rand() % 1000 + 1);
+    }
+
+    mergeSort(array, size);
+
+    ASSERT_TRUE(std::is_sorted(array, array + size));
+
+    delete[] array;
+}
+
 int main(int argc, char** argv)
 {
     ::testing::InitGoogleTest(&argc, argv);
